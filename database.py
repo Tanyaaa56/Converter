@@ -25,3 +25,5 @@ class Conversion(Base):
     result: Mapped[float] = mapped_column(Float)
 
 
+base = Base()
+base.create_db()
