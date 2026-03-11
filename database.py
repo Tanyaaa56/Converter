@@ -2,7 +2,7 @@ from sqlalchemy import String, Float
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 from sqlalchemy import create_engine
 
-engine = create_engine('postgresql://database_5qfi_user:SurLskSu21E3z6B7kankbw4n8gx0xY4x@dpg-d6ope6f5gffc73f28eog-a/database_5qfi')
+engine = create_engine('')
 Session = sessionmaker(bind=engine)
 
 class Base(DeclarativeBase):
