@@ -15,7 +15,7 @@ def convert():
         to_currency = request.form['to_currency']
         amount = float(request.form['amount'])
 
-        response = requests.get('<https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5>')
+        response = requests.get('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
 
         # Генерація словника з відповідними назвами валют та їх курсом у числовому типі даних
         rates = {item['ccy']: float(item['sale']) for item in response.json() if item['ccy'] in ['USD', 'EUR']}
@@ -44,3 +44,4 @@ def convert():
 if __name__ == '__main__':
 
     app.run(debug=True)
+
