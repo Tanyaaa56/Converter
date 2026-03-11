@@ -1,6 +1,7 @@
 from sqlalchemy import String, Float
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 from sqlalchemy import create_engine
+import os
 DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_engine(DATABASE_URL)
@@ -28,6 +29,7 @@ class Conversion(Base):
 
 base = Base()
 base.create_db()
+
 
 
 
