@@ -1,13 +1,7 @@
-import os
 from sqlalchemy import String, Float, create_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 
-DATABASE_URL = os.getenv("DATABASE_URL")
-
-if DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
-
-engine = create_engine(DATABASE_URL)
+engine = create_engine("sqlite:///database.db")
 
 Session = sessionmaker(bind=engine)
 
@@ -27,8 +21,3 @@ class Conversion(Base):
 
 
 Base.metadata.create_all(engine)
-
-
-
-
-
