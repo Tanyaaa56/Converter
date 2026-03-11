@@ -1,8 +1,9 @@
 from sqlalchemy import String, Float
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, sessionmaker
 from sqlalchemy import create_engine
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-engine = create_engine('postgresql://database_c0ib_user:3tHbS3cfXkw9oQlQuw5dLIZbVyks2y4n@dpg-d6ou8pkr85hc739b7h3g-a.oregon-postgres.render.com/database_c0ib')
+engine = create_engine(DATABASE_URL)
 Session = sessionmaker(bind=engine)
 
 class Base(DeclarativeBase):
@@ -27,5 +28,6 @@ class Conversion(Base):
 
 base = Base()
 base.create_db()
+
 
 
